@@ -1,0 +1,378 @@
+openapi: 3.0.0
+info:
+  title: socialnetworkcollection
+  contact: {}
+  version: '1.0'
+servers:
+- url: http://0.0.0.0:3000
+  variables: {}
+- url: http://0.0.0.0:3001
+  variables: {}
+- url: http://0.0.0.0:3002
+  variables: {}
+paths:
+  /user:
+    post:
+      tags:
+      - Misc
+      summary: adduser
+      operationId: adduser
+      parameters:
+      - name: first_name
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: ana
+      - name: last_name
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: bgd
+      - name: email
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: anbgd@scsc.cv
+      - name: birth_date
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: 04.04.2000
+      - name: login
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: aaabgd
+      - name: password
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: lox
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://0.0.0.0:3000
+        variables: {}
+    get:
+      tags:
+      - Misc
+      summary: getuser
+      operationId: getuser
+      parameters:
+      - name: id
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 3
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://0.0.0.0:3000
+        variables: {}
+  /searchbynames:
+    get:
+      tags:
+      - Misc
+      summary: getuserbyfnsn
+      operationId: getuserbyfnsn
+      parameters:
+      - name: first_name
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: Evgenia
+      - name: last_name
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: Vasilyeva
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://0.0.0.0:3000
+        variables: {}
+  /searchbylogin:
+    get:
+      tags:
+      - Misc
+      summary: getuserbylogin
+      operationId: getuserbylogin
+      parameters:
+      - name: login
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: aaabgd
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://0.0.0.0:3000
+        variables: {}
+  /chat:
+    post:
+      tags:
+      - Misc
+      summary: addmessage
+      operationId: addmessage
+      parameters:
+      - name: receiver_id
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 3
+      - name: sender_id
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 4
+      - name: message
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: Hey, Kenny McCormick
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://0.0.0.0:3001
+        variables: {}
+    get:
+      tags:
+      - Misc
+      summary: getmessage
+      operationId: getmessage
+      parameters:
+      - name: id
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 2
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://0.0.0.0:3001
+        variables: {}
+  /dopost:
+    post:
+      tags:
+      - Misc
+      summary: addpost
+      operationId: addpost
+      parameters:
+      - name: name
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: why???
+      - name: login
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: aaabgd
+      - name: data
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: my fridge stopped working
+      - name: creation_date
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: 22.03.2023
+      - name: comments
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: That's bad
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://0.0.0.0:3002
+        variables: {}
+  /getpost:
+    get:
+      tags:
+      - Misc
+      summary: getpost
+      operationId: getpost
+      parameters:
+      - name: id
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 8
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://0.0.0.0:3002
+        variables: {}
+  /addcomment:
+    post:
+      tags:
+      - Misc
+      summary: addcomments
+      operationId: addcomments
+      parameters:
+      - name: id
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 6
+      - name: comments
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: didn't even know this could happen
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://0.0.0.0:3002
+        variables: {}
+  /checkcomments:
+    get:
+      tags:
+      - Misc
+      summary: getcomments
+      operationId: getcomments
+      parameters:
+      - name: id
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 6
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://0.0.0.0:3002
+        variables: {}
+tags:
+- name: Misc
+  description: ''

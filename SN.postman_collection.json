@@ -1,0 +1,433 @@
+{
+	"info": {
+		"_postman_id": "5e52f5ef-d616-41b6-b7a1-c6217d3927db",
+		"name": "socialnetworkcollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24105341"
+	},
+	"item": [
+		{
+			"name": "adduser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:3000/user?first_name=ana&last_name=bgd&email=anbgd@scsc.cv&birth_date=04.04.2000&login=aaabgd&password=lox",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "first_name",
+							"value": "ana"
+						},
+						{
+							"key": "last_name",
+							"value": "bgd"
+						},
+						{
+							"key": "email",
+							"value": "anbgd@scsc.cv"
+						},
+						{
+							"key": "birth_date",
+							"value": "04.04.2000"
+						},
+						{
+							"key": "login",
+							"value": "aaabgd"
+						},
+						{
+							"key": "password",
+							"value": "lox"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "adduser Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:3000/user?first_name=Evgenia&last_name=Vasilyeva&email=evg@ffff.fff&birth_date=06.06.1996&login=evgesha&password=lox123",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "first_name",
+							"value": "Evgenia"
+						},
+						{
+							"key": "last_name",
+							"value": "Vasilyeva"
+						},
+						{
+							"key": "email",
+							"value": "evg@ffff.fff"
+						},
+						{
+							"key": "birth_date",
+							"value": "06.06.1996"
+						},
+						{
+							"key": "login",
+							"value": "evgesha"
+						},
+						{
+							"key": "password",
+							"value": "lox123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getuser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:3000/user?id=3",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getuserbyfnsn",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:3000/searchbynames?first_name=Evgenia&last_name=Vasilyeva",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "3000",
+					"path": [
+						"searchbynames"
+					],
+					"query": [
+						{
+							"key": "first_name",
+							"value": "Evgenia"
+						},
+						{
+							"key": "last_name",
+							"value": "Vasilyeva"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getuserbylogin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:3000/searchbylogin?login=aaabgd",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "3000",
+					"path": [
+						"searchbylogin"
+					],
+					"query": [
+						{
+							"key": "login",
+							"value": "aaabgd"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addmessage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:3001/chat?receiver_id=3&sender_id=4&message=Hey, Kenny McCormick",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "3001",
+					"path": [
+						"chat"
+					],
+					"query": [
+						{
+							"key": "receiver_id",
+							"value": "3"
+						},
+						{
+							"key": "sender_id",
+							"value": "4"
+						},
+						{
+							"key": "message",
+							"value": "Hey, Kenny McCormick"
+						},
+						{
+							"key": "",
+							"value": "dsdasd",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "dsdasd",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "daas",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getmessage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:3001/chat?id=2",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "3001",
+					"path": [
+						"chat"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getmessagebysender",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:3001/chat?sender_id=4",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "3001",
+					"path": [
+						"chat"
+					],
+					"query": [
+						{
+							"key": "sender_id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addpost",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:3002/dopost?name=why???&login=aaabgd&data=my fridge stopped working&creation_date=22.03.2023&comments=That's bad",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "3002",
+					"path": [
+						"dopost"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "why???"
+						},
+						{
+							"key": "login",
+							"value": "aaabgd"
+						},
+						{
+							"key": "data",
+							"value": "my fridge stopped working"
+						},
+						{
+							"key": "creation_date",
+							"value": "22.03.2023"
+						},
+						{
+							"key": "comments",
+							"value": "That's bad"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getpost",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:3002/getpost?id=8",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "3002",
+					"path": [
+						"getpost"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addcomments",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:3002/addcomment?id=6&comments=didn't even know this could happen",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "3002",
+					"path": [
+						"addcomment"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6"
+						},
+						{
+							"key": "comments",
+							"value": "didn't even know this could happen"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getcomments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:3002/checkcomments?id=6",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "3002",
+					"path": [
+						"checkcomments"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

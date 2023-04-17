@@ -163,7 +163,7 @@ namespace database
             Poco::Data::Session session = database::Database::get().create_session();
             Poco::Data::Statement insert(session);
 
-            insert << "INSERT INTO Wall (name,login,creation_date,comments,data) VALUES(?, ?, ?, ?, ?)",
+            insert << "INSERT INTO Wall (name,login,data,creation_date,comments) VALUES(?, ?, ?, ?, ?)",
                     use(_name),
                     use(_login),
                     use(_data),
