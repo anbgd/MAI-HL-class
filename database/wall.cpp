@@ -29,7 +29,6 @@ namespace database
             create_stmt << "CREATE TABLE IF NOT EXISTS `Wall` (`id` INT NOT NULL AUTO_INCREMENT,"
                         << "`name` VARCHAR(256) NOT NULL,"
                         << "`login` VARCHAR(256) NOT NULL,"
-                        /*<< "`description` VARCHAR(256) NOT NULL,"*/
                         << "`data` VARCHAR(256) NOT NULL,"
                         << "`creation_date` VARCHAR(256) NULL,"
                         << "`comments` VARCHAR(1024) NULL,"
@@ -57,7 +56,6 @@ namespace database
         root->set("id", _id);
         root->set("name", _name);
         root->set("login", _login);
-        /*root->set("description", _description);*/
         root->set("data", _data);
         root->set("creation_date", _creation_date);
         root->set("comments", _comments);
@@ -84,7 +82,6 @@ namespace database
         wall.id() = object->getValue<long>("id");
         wall.name() = object->getValue<std::string>("name");
         wall.login() = object->getValue<std::string>("login");
-        /*wall.description() = object->getValue<std::string>("description");*/
         wall.data() = object->getValue<std::string>("data");
         wall.creation_date() = object->getValue<std::string>("creation_date");
         wall.comments() = object->getValue<std::string>("comments");
@@ -99,11 +96,10 @@ namespace database
             Poco::Data::Session session = database::Database::get().create_session();
             Poco::Data::Statement select(session);
             Wall a;
-            select << "SELECT id, name, login, data, creation_date, comments FROM Wall where id=?",/*description after login*/
+            select << "SELECT id, name, login, data, creation_date, comments FROM Wall where id=?",
                     into(a._id),
                     into(a._name),
                     into(a._login),
-                    /*into(a._description),*/
                     into(a._data),
                     into(a._creation_date),
                     into(a._comments),
@@ -167,10 +163,9 @@ namespace database
             Poco::Data::Session session = database::Database::get().create_session();
             Poco::Data::Statement insert(session);
 
-            insert << "INSERT INTO Wall (name,login,creation_date,comments,data) VALUES(?, ?, ?, ?, ?)",/*description after comments*/
+            insert << "INSERT INTO Wall (name,login,creation_date,comments,data) VALUES(?, ?, ?, ?, ?)",
                     use(_name),
                     use(_login),
-                    /*use(_description),*/
                     use(_data),
                     use(_creation_date),
                     use(_comments);
@@ -180,7 +175,7 @@ namespace database
             Poco::Data::Statement select(session);
             select << "SELECT LAST_INSERT_ID()",
                     into(_id),
-                    range(0, 1); //  iterate over result set one row at a time
+                    range(0, 1);
 
             if (!select.done())
             {
@@ -210,10 +205,9 @@ namespace database
             Poco::Data::Session session = database::Database::get().create_session();
             Poco::Data::Statement update(session);
 
-            update << "UPDATE Wall SET name = ?, login = ?, data = ?, creation_date = ?, comments = ? WHERE id = ?",/*description lg*/
+            update << "UPDATE Wall SET name = ?, login = ?, data = ?, creation_date = ?, comments = ? WHERE id = ?",
                     use(_name),
                     use(_login),
-                    /*use(_description),*/
                     use(_data),
                     use(_creation_date),
                     use(_comments),
@@ -263,11 +257,6 @@ namespace database
         return _id;
     }
 
-    /*const std::string &Wall::get_description() const
-    {
-        return _description;
-    }*/
-
     const std::string &Wall::get_creation_date() const
     {
         return _creation_date;
@@ -287,11 +276,6 @@ namespace database
     {
         return _id;
     }
-
-    /*std::string &Wall::description()
-    {
-        return _description;
-    }*/
 
     std::string &Wall::creation_date()
     {
