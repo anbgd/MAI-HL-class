@@ -1,0 +1,453 @@
+{
+	"info": {
+		"_postman_id": "97a698cf-aff2-4660-b0ea-643053ffc700",
+		"name": "socialnetworkcollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24104058"
+	},
+	"item": [
+		{
+			"name": "getmessage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:3001/chat?id=1",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "3001",
+					"path": [
+						"chat"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getmessagebysender",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:3001/chat?id=1",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "3001",
+					"path": [
+						"chat"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addmessage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:3001/chat?receiver_id=1&sender_id=1&message=tivirp",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "3001",
+					"path": [
+						"chat"
+					],
+					"query": [
+						{
+							"key": "receiver_id",
+							"value": "1"
+						},
+						{
+							"key": "sender_id",
+							"value": "1"
+						},
+						{
+							"key": "message",
+							"value": "tivirp"
+						},
+						{
+							"key": "",
+							"value": "dsdasd",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "dsdasd",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "daas",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getpost",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:3002/getpost?id=1",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "3002",
+					"path": [
+						"getpost"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addpost",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:3002/dopost?name=31231&login=CoolBoy&description=sdasdas&data=dsdasdfdsfs&creation_date=10.03.2022&comments=daas",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "3002",
+					"path": [
+						"dopost"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "31231"
+						},
+						{
+							"key": "login",
+							"value": "CoolBoy"
+						},
+						{
+							"key": "description",
+							"value": "sdasdas"
+						},
+						{
+							"key": "data",
+							"value": "dsdasdfdsfs"
+						},
+						{
+							"key": "creation_date",
+							"value": "10.03.2022"
+						},
+						{
+							"key": "comments",
+							"value": "daas"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "changepost",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:3002/dopost?name=31231&login=CoolBoy&description=sdasdas&data=dsdasdfdsfs&creation_date=10.03.2022&comments=daas",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "3002",
+					"path": [
+						"dopost"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "31231"
+						},
+						{
+							"key": "login",
+							"value": "CoolBoy"
+						},
+						{
+							"key": "description",
+							"value": "sdasdas"
+						},
+						{
+							"key": "data",
+							"value": "dsdasdfdsfs"
+						},
+						{
+							"key": "creation_date",
+							"value": "10.03.2022"
+						},
+						{
+							"key": "comments",
+							"value": "daas"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addcomments",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:3002/dopost?name=31231&login=CoolBoy&description=sdasdas&data=dsdasdfdsfs&creation_date=10.03.2022&comments=daas",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "3002",
+					"path": [
+						"dopost"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "31231"
+						},
+						{
+							"key": "login",
+							"value": "CoolBoy"
+						},
+						{
+							"key": "description",
+							"value": "sdasdas"
+						},
+						{
+							"key": "data",
+							"value": "dsdasdfdsfs"
+						},
+						{
+							"key": "creation_date",
+							"value": "10.03.2022"
+						},
+						{
+							"key": "comments",
+							"value": "daas"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getcomments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:3002/checkcomments?id=1",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "3002",
+					"path": [
+						"checkcomments"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getuser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:3000/user?id=1",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getuserbyfnsn",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:3000/searchbynames?first_name=John&last_name=Doe",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "3000",
+					"path": [
+						"searchbynames"
+					],
+					"query": [
+						{
+							"key": "first_name",
+							"value": "John"
+						},
+						{
+							"key": "last_name",
+							"value": "Doe"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getuserbylogin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:3000/searchbylogin?login=dsdasd",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "3000",
+					"path": [
+						"searchbylogin"
+					],
+					"query": [
+						{
+							"key": "login",
+							"value": "dsdasd"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "adduser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:3000/user?first_name=dsdassadasdas&last_name=sda&email=ddas%40sfsfs&birth_date=dsdasd&login=dsdasd&password=daas",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "first_name",
+							"value": "dsdassadasdas"
+						},
+						{
+							"key": "last_name",
+							"value": "sda"
+						},
+						{
+							"key": "email",
+							"value": "ddas%40sfsfs"
+						},
+						{
+							"key": "birth_date",
+							"value": "dsdasd"
+						},
+						{
+							"key": "login",
+							"value": "dsdasd"
+						},
+						{
+							"key": "password",
+							"value": "daas"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
