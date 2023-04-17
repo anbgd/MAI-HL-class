@@ -84,11 +84,11 @@ paths:
           schema:
             type: string
           example: CoolBoy
-        - name: description
-          in: query
-          schema:
-            type: string
-          example: sdasdas
+        #- name: description
+        #  in: query
+        #  schema:
+        #    type: string
+        #  example: sdasdas
         - name: data
           in: query
           schema:

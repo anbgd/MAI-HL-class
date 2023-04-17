@@ -13,7 +13,7 @@ namespace database
         long _id;
         std::string _name;
         std::string _login;
-        std::string _description;
+        /*std::string _description;*/
         std::string _data;
         std::string _creation_date;
         std::string _comments;
@@ -25,7 +25,7 @@ namespace database
         long get_id() const;
         const std::string &get_name() const;
         const std::string &get_login() const;
-        const std::string &get_description() const;
+        /*const std::string &get_description() const;*/
         const std::string &get_data() const;
         const std::string &get_creation_date() const;
         const std::string &get_comments() const;
@@ -33,7 +33,7 @@ namespace database
         long& id();
         std::string &name();
         std::string &login();
-        std::string &description();
+        /*std::string &description();*/
         std::string &data();
         std::string &creation_date();
         std::string &comments();

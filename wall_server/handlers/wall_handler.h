@@ -82,7 +82,7 @@ public:
                 database::Wall wall;
                 wall.name() = form.get("name");
                 wall.login() = form.get("login");
-                wall.description() = form.get("description");
+                /*wall.description() = form.get("description");*/
                 wall.data() = form.get("data");
                 wall.creation_date() = form.get("creation_date");
                 wall.comments() = form.get("comments");
@@ -157,11 +157,11 @@ public:
                 } else {
                     wall.login() = result->login();
                 }
-                if (form.has("description")) {
+                /*if (form.has("description")) {
                     wall.description() = form.get("description");
                 } else {
                     wall.description() = result->description();
-                }
+                }*/
                 if (form.has("data")) {
                     wall.data() = form.get("data");
                 } else {
@@ -243,7 +243,7 @@ public:
                 database::Wall wall;
                 wall.name() = result->name();
                 wall.login() = result->login();
-                wall.description() = result->description();
+                /*wall.description() = result->description();*/
                 wall.data() = result->data();
                 wall.creation_date() = result->creation_date();
                 wall.comments() = result->comments() + ";" + form.get("comments");

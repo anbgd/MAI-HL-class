@@ -41,7 +41,7 @@ create table IF NOT EXISTS Wall
         primary key,
     name          varchar(256) collate utf8_unicode_ci  not null,
     login         varchar(10) collate utf8_unicode_ci   not null,
-    description   varchar(256) collate utf8_unicode_ci  null,
+    /*description   varchar(256) collate utf8_unicode_ci  null,*/
     data          varchar(1000) collate utf8_unicode_ci null,
     creation_date varchar(10) collate utf8_unicode_ci   null,
     comments      longtext collate utf8_unicode_ci      null
@@ -51,10 +51,10 @@ INSERT INTO stud.Chat (receiver_id, sender_id, message)
 VALUES (1, 2, 'dada');
 
 INSERT INTO stud.User (first_name, last_name, email, birth_date, login, password)
-VALUES ('Ilya', 'Chernenko', 'chern@gmail.com', '01.02.00', 'coolgut', 'secret');
+VALUES ('Anastasia', 'Bogdanova', 'anbgd@gmail.com', '06.07.2000', 'anbgd', 'pass123');
 
-INSERT INTO stud.Wall (name, login, description, data, creation_date, comments)
-VALUES ('random', 'coolgut', 'coolimage', 'imagineimage', '11.03.2023', 'sad;');
+INSERT INTO stud.Wall (name, login, data, creation_date, comments)/*descr lg*/
+VALUES ('what a day', 'anbgd', 'image_of_the_sky', '11.03.2023', 'no comments');
 
 
 
