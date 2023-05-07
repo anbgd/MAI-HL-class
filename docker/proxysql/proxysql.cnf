@@ -20,11 +20,11 @@ mysql_variables=
 {
     max_connections=1024
     default_query_timeout=3600000
-    interfaces="0.0.0.0:3360"
+    interfaces="0.0.0.0:6033"
     default_schema="information_schema"
     server_version="8.0.17 (ProxySQL)"
     monitor_username="stud"
-    monitor_password="helloworld"
+    monitor_password="stud"
     monitor_ping_interval=10000
 }
 
@@ -61,7 +61,7 @@ mysql_users:
 (
     {
     	username = "stud"
-    	password = "helloworld"
+    	password = "stud"
     	default_hostgroup = 0
     	max_connections=200
     	default_schema="information_schema"

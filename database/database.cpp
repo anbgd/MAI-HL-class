@@ -29,7 +29,7 @@ namespace database{
     }
 
     size_t Database::get_max_shard(){
-        return 3;
+        return 2;
     }
 
     std::vector<std::string> Database::get_all_hints(){

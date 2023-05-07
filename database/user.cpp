@@ -38,6 +38,7 @@ namespace database
                             << "PRIMARY KEY (`id`),KEY `fn` (`first_name`),KEY `ln` (`last_name`));"
                             << hint,
                         now;
+                std::cout << create_stmt.toString() << std::endl;
             }
         }
 
@@ -195,8 +196,8 @@ namespace database
             std::vector<std::string> hints = database::Database::get_all_hints();
 
             std::vector<std::future<std::vector<User>>> futures;
-            first_name + "%";
-            last_name + "%";
+            first_name += "%";
+            last_name += "%";
             // map phase in parallel
             for (const std::string &hint : hints)
             {

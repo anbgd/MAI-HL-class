@@ -102,10 +102,12 @@ services:
       - DB_HOST=proxysql
       - DB_PORT=6033
       - DB_LOGIN=stud
-      - DB_PASSWORD=helloworld
-      - DB_DATABASE=stud
+      - DB_PASSWORD=stud
+      - DB_DATABASE=archdb
     ports:
-      - 8080:8080
+      - 8082:8080
+    expose:
+      - "8082"
     networks:
       - arch-network
     depends_on:
