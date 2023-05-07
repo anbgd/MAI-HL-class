@@ -1,6 +1,5 @@
-#ifndef HTTPWEBSERVER_H
-#define HTTPWEBSERVER_H
-
+#ifndef MAI_HL_CLASS_HTTP_WEB_SERVER_H
+#define MAI_HL_CLASS_HTTP_WEB_SERVER_H
 #include "Poco/Net/HTTPServer.h"
 #include "Poco/Net/HTTPRequestHandler.h"
 #include "Poco/Net/HTTPRequestHandlerFactory.h"
@@ -38,7 +37,11 @@ using Poco::Util::OptionSet;
 using Poco::Util::ServerApplication;
 
 #include "http_request_factory.h"
+
+#include "../database/chat.h"
 #include "../database/user.h"
+#include "../database/wall.h"
+
 
 class HTTPWebServer : public Poco::Util::ServerApplication
 {
@@ -67,8 +70,11 @@ protected:
     {
         if (!_helpRequested)
         {
+            database::Chat::init();
+            database::User::init();
             database::Wall::init();
-            ServerSocket svs(Poco::Net::SocketAddress("0.0.0.0", 3002));
+
+            ServerSocket svs(Poco::Net::SocketAddress("0.0.0.0", 8080));
             HTTPServer srv(new HTTPRequestFactory(DateTimeFormat::SORTABLE_FORMAT), svs, new HTTPServerParams);
             srv.start();
             waitForTerminationRequest();
@@ -80,4 +86,4 @@ protected:
 private:
     bool _helpRequested;
 };
-#endif // !HTTPWEBSERVER
+#endif //MAI_HL_CLASS_HTTP_WEB_SERVER_H
