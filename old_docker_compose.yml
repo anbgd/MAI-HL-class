@@ -1,0 +1,102 @@
+version: '2.1'
+
+services:
+  mai-db-node-ex01:
+    build:
+      context: mariadb
+      dockerfile: Dockerfile
+    container_name: mai-db-node-ex01
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: stud
+      MYSQL_USER: stud
+      MYSQL_PASSWORD: helloworld
+      MYSQL_ROOT_PASSWORD: '1'
+    command: >
+      --sql-mode='STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
+      --general-log=ON
+      --log-queries-not-using-indexes=ON
+    networks:
+      - arch-network
+    ports:
+      - "3336:3306"
+    expose:
+      - "3336"
+    healthcheck:
+      test: "/usr/bin/mysql --user=stud --password=helloworld --execute \"SHOW DATABASES;\""
+      timeout: 20s
+      retries: 5
+    volumes:
+      - db-node-ex01-data:/var/lib/mysql
+
+  userservice:
+    build:
+      context: user_server
+      dockerfile: DockerUser
+    container_name: userservice
+    environment:
+      - DB_HOST=mai-db-node-ex01
+      - DB_PORT=3306
+      - DB_LOGIN=stud
+      - DB_PASSWORD=helloworld
+      - DB_DATABASE=stud
+    ports:
+      - "3000:3000"
+    expose:
+      - "3000"
+    networks:
+      - arch-network
+    depends_on:
+      mai-db-node-ex01:
+        condition: service_healthy
+
+
+  chatservice:
+    build:
+      context: chat_server
+      dockerfile: DockerChat
+    container_name: chatservice
+    environment:
+      - DB_HOST=mai-db-node-ex01
+      - DB_PORT=3306
+      - DB_LOGIN=stud
+      - DB_PASSWORD=helloworld
+      - DB_DATABASE=stud
+    ports:
+      - "3001:3001"
+    expose:
+      - "3001"
+    networks:
+      - arch-network
+    depends_on:
+      mai-db-node-ex01:
+        condition: service_healthy
+
+  wallservice:
+      build:
+        context: wall_server
+        dockerfile: DockerWall
+      container_name: wallservice
+      environment:
+        - DB_HOST=mai-db-node-ex01
+        - DB_PORT=3306
+        - DB_LOGIN=stud
+        - DB_PASSWORD=helloworld
+        - DB_DATABASE=stud
+      ports:
+        - "3002:3002"
+      expose:
+        - "3002"
+      networks:
+        - arch-network
+      depends_on:
+        mai-db-node-ex01:
+          condition: service_healthy
+
+volumes:
+  db-node-ex01-data:
+
+networks:
+  arch-network:
+    driver: "bridge"
+    external: false
