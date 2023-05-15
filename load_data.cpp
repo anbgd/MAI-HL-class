@@ -53,13 +53,12 @@ auto main() -> int
         for ([[maybe_unused]] std::string &hint : hints){
             Poco::Data::Statement create_stmt(session);
             create_stmt << "CREATE TABLE IF NOT EXISTS `User` (`id` INT NOT NULL AUTO_INCREMENT,"
-                        << "`id` INT NOT NULL,"
                         << "`first_name` VARCHAR(256) NOT NULL,"
-                        << "`last_name` VARCHAR(256) NULL,"
-                        << "`login` VARCHAR(256) NULL,"
-                        << "`birth_date` VARCHAR(256) NULL,"
-                        << "`password` VARCHAR(256) NULL,"
+                        << "`last_name` VARCHAR(256) NOT NULL,"
+                        << "`login` VARCHAR(256) NOT NULL,"
+                        << "`password` VARCHAR(256) NOT NULL,"
                         << "`email` VARCHAR(256) NULL,"
+                        << "`birth_date` VARCHAR(1024) NULL,"
                         << "PRIMARY KEY (`id`),KEY `fn` (`first_name`),KEY `ln` (`last_name`));";
             create_stmt.execute();
         }
