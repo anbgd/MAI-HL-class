@@ -1,378 +1,220 @@
 openapi: 3.0.0
 info:
   title: socialnetworkcollection
-  contact: {}
-  version: '1.0'
+  version: 1.0.0
 servers:
-- url: http://0.0.0.0:3000
-  variables: {}
-- url: http://0.0.0.0:3001
-  variables: {}
-- url: http://0.0.0.0:3002
-  variables: {}
+  - url: http://localhost:8082
 paths:
-  /user:
-    post:
-      tags:
-      - Misc
-      summary: adduser
-      operationId: adduser
-      parameters:
-      - name: first_name
-        in: query
-        description: ''
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-          example: ana
-      - name: last_name
-        in: query
-        description: ''
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-          example: bgd
-      - name: email
-        in: query
-        description: ''
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-          example: anbgd@scsc.cv
-      - name: birth_date
-        in: query
-        description: ''
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-          example: 04.04.2000
-      - name: login
-        in: query
-        description: ''
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-          example: aaabgd
-      - name: password
-        in: query
-        description: ''
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-          example: lox
-      responses:
-        '200':
-          description: ''
-          headers: {}
-      deprecated: false
-      servers:
-      - url: http://0.0.0.0:3000
-        variables: {}
-    get:
-      tags:
-      - Misc
-      summary: getuser
-      operationId: getuser
-      parameters:
-      - name: id
-        in: query
-        description: ''
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
-          example: 3
-      responses:
-        '200':
-          description: ''
-          headers: {}
-      deprecated: false
-      servers:
-      - url: http://0.0.0.0:3000
-        variables: {}
-  /searchbynames:
-    get:
-      tags:
-      - Misc
-      summary: getuserbyfnsn
-      operationId: getuserbyfnsn
-      parameters:
-      - name: first_name
-        in: query
-        description: ''
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-          example: Evgenia
-      - name: last_name
-        in: query
-        description: ''
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-          example: Vasilyeva
-      responses:
-        '200':
-          description: ''
-          headers: {}
-      deprecated: false
-      servers:
-      - url: http://0.0.0.0:3000
-        variables: {}
-  /searchbylogin:
-    get:
-      tags:
-      - Misc
-      summary: getuserbylogin
-      operationId: getuserbylogin
-      parameters:
-      - name: login
-        in: query
-        description: ''
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-          example: aaabgd
-      responses:
-        '200':
-          description: ''
-          headers: {}
-      deprecated: false
-      servers:
-      - url: http://0.0.0.0:3000
-        variables: {}
   /chat:
-    post:
-      tags:
-      - Misc
-      summary: addmessage
-      operationId: addmessage
-      parameters:
-      - name: receiver_id
-        in: query
-        description: ''
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
-          example: 3
-      - name: sender_id
-        in: query
-        description: ''
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
-          example: 4
-      - name: message
-        in: query
-        description: ''
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-          example: Hey, Kenny McCormick
-      responses:
-        '200':
-          description: ''
-          headers: {}
-      deprecated: false
-      servers:
-      - url: http://0.0.0.0:3001
-        variables: {}
     get:
       tags:
-      - Misc
-      summary: getmessage
-      operationId: getmessage
+        - default
+      summary: getmessagebysender
       parameters:
-      - name: id
-        in: query
-        description: ''
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
-          example: 2
+        - name: id
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
-          description: ''
-          headers: {}
-      deprecated: false
-      servers:
-      - url: http://0.0.0.0:3001
-        variables: {}
-  /dopost:
+          description: Successful response
+          content:
+            application/json: {}
     post:
       tags:
-      - Misc
-      summary: addpost
-      operationId: addpost
+        - default
+      summary: addmessage
+      requestBody:
+        content: {}
       parameters:
-      - name: name
-        in: query
-        description: ''
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-          example: why???
-      - name: login
-        in: query
-        description: ''
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-          example: aaabgd
-      - name: data
-        in: query
-        description: ''
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-          example: my fridge stopped working
-      - name: creation_date
-        in: query
-        description: ''
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-          example: 22.03.2023
-      - name: comments
-        in: query
-        description: ''
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-          example: That's bad
+        - name: receiver_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: sender_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: message
+          in: query
+          schema:
+            type: string
+          example: tivirp
       responses:
         '200':
-          description: ''
-          headers: {}
-      deprecated: false
-      servers:
-      - url: http://0.0.0.0:3002
-        variables: {}
+          description: Successful response
+          content:
+            application/json: {}
   /getpost:
     get:
       tags:
-      - Misc
+        - default
       summary: getpost
-      operationId: getpost
       parameters:
-      - name: id
-        in: query
-        description: ''
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
-          example: 8
+        - name: id
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
-          description: ''
-          headers: {}
-      deprecated: false
-      servers:
-      - url: http://0.0.0.0:3002
-        variables: {}
-  /addcomment:
+          description: Successful response
+          content:
+            application/json: {}
+  /dopost:
     post:
       tags:
-      - Misc
+        - default
       summary: addcomments
-      operationId: addcomments
+      requestBody:
+        content: {}
       parameters:
-      - name: id
-        in: query
-        description: ''
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
-          example: 6
-      - name: comments
-        in: query
-        description: ''
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-          example: didn't even know this could happen
+        - name: name
+          in: query
+          schema:
+            type: integer
+          example: '31231'
+        - name: login
+          in: query
+          schema:
+            type: string
+          example: CoolBoy
+        - name: description
+          in: query
+          schema:
+            type: string
+          example: sdasdas
+        - name: data
+          in: query
+          schema:
+            type: string
+          example: dsdasdfdsfs
+        - name: creation_date
+          in: query
+          schema:
+            type: string
+          example: 10.03.2022
+        - name: comments
+          in: query
+          schema:
+            type: string
+          example: daas
       responses:
         '200':
-          description: ''
-          headers: {}
-      deprecated: false
-      servers:
-      - url: http://0.0.0.0:3002
-        variables: {}
+          description: Successful response
+          content:
+            application/json: {}
   /checkcomments:
     get:
       tags:
-      - Misc
+        - default
       summary: getcomments
-      operationId: getcomments
       parameters:
-      - name: id
-        in: query
-        description: ''
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
-          example: 6
+        - name: id
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
-          description: ''
-          headers: {}
-      deprecated: false
-      servers:
-      - url: http://0.0.0.0:3002
-        variables: {}
-tags:
-- name: Misc
-  description: ''
+          description: Successful response
+          content:
+            application/json: {}
+  /user:
+    get:
+      tags:
+        - default
+      summary: getuser
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - default
+      summary: adduser
+      requestBody:
+        content: {}
+      parameters:
+        - name: first_name
+          in: query
+          schema:
+            type: string
+          example: dsdassadasdas
+        - name: last_name
+          in: query
+          schema:
+            type: string
+          example: sda
+        - name: email
+          in: query
+          schema:
+            type: string
+          example: ddas%40sfsfs
+        - name: birth_date
+          in: query
+          schema:
+            type: string
+          example: dsdasd
+        - name: login
+          in: query
+          schema:
+            type: string
+          example: dsdasd
+        - name: password
+          in: query
+          schema:
+            type: string
+          example: daas
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /searchbynames:
+    get:
+      tags:
+        - default
+      summary: getuserbyfnsn
+      parameters:
+        - name: first_name
+          in: query
+          schema:
+            type: string
+          example: John
+        - name: last_name
+          in: query
+          schema:
+            type: string
+          example: Doe
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /searchbylogin:
+    get:
+      tags:
+        - default
+      summary: getuserbylogin
+      parameters:
+        - name: login
+          in: query
+          schema:
+            type: string
+          example: dsdasd
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
