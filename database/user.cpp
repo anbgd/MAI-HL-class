@@ -441,13 +441,13 @@ namespace database
 }
 
 
-    std::optional<User> User::read_from_cache_by_id(long total_id)
+    std::optional<User> User::read_from_cache_by_id(long id)
     {
 
         try
         {
             std::string result;
-            if (database::Cache::get().get(total_id, result))
+            if (database::Cache::get().get(id, result))
                 return fromJSON(result);
             else
                 return std::optional<User>();
