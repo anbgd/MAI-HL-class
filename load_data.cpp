@@ -21,15 +21,15 @@ auto main() -> int
 
     std::string _connection_string;
     _connection_string+="host=";
-    _connection_string+=std::getenv("DB_HOST");
+    _connection_string+="127.0.0.1";
     _connection_string+=";port=";
-    _connection_string+=std::getenv("DB_PORT");
+    _connection_string+="6033";
     _connection_string+=";user=";
-    _connection_string+=std::getenv("DB_LOGIN");
+    _connection_string+="stud";
     _connection_string+=";db=";
-    _connection_string+=std::getenv("DB_DATABASE");
+    _connection_string+="archdb";
     _connection_string+=";password=";
-    _connection_string+=std::getenv("DB_PASSWORD");
+    _connection_string+="stud";
     std::cout << "connection string:" << _connection_string << std::endl;
 
     //get_all_hints
@@ -41,11 +41,7 @@ auto main() -> int
     }
 
 
-
-
-    Poco::Data::Session session(
-            Poco::Data::SessionFactory::instance().create(
-                    Poco::Data::MySQL::Connector::KEY, _connection_string));
+    Poco::Data::Session session(Poco::Data::SessionFactory::instance().create(Poco::Data::MySQL::Connector::KEY, _connection_string));
     std::cout << "session created" << std::endl;
     try
     {
@@ -70,7 +66,7 @@ auto main() -> int
 
         // https://www.onlinedatagenerator.com/
         std::string json;
-        std::ifstream is("gen_data.json");
+        std::ifstream is("gendata.json");
         std::istream_iterator<char> eos;
         std::istream_iterator<char> iit(is);
         while (iit != eos)
