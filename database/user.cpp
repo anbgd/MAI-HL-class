@@ -438,8 +438,6 @@ namespace database
     {
         return _birth_date;
     }
-}
-
 
     std::optional<User> User::read_from_cache_by_id(long id)
     {
@@ -465,3 +463,4 @@ namespace database
         std::string message = ss.str();
         database::Cache::get().put(_id, message);
     }
+}
