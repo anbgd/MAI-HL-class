@@ -50,7 +50,7 @@ auto main() -> int
     try
     {
         std::vector<std::string> hints = shards;
-        for (std::string &hint : hints){
+        for ([[maybe_unused]] std::string &hint : hints){
             Poco::Data::Statement create_stmt(session);
             create_stmt << "CREATE TABLE IF NOT EXISTS `User` (`id` INT NOT NULL AUTO_INCREMENT,"
                         << "`id` INT NOT NULL,"
